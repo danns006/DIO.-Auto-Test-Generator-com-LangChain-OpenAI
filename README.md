@@ -13,11 +13,31 @@ Este projeto implementa um agente de IA que gera automaticamente testes unitári
 
 ---
 
-## Como usar
+# Como usar
 
-### 1. Clone o repositório
+## 1. Baixe as dependências 
 
-```bash
-git clone https://github.com/seu-usuario/auto-test-agent
-cd auto-test-agent
+pip install -r requirements.txt
 
+## 2. Configure a sua chave da OpenAII
+Crie um arquivo .env com base no .env.example:
+OPENAI_API_KEY=sk-sua-chave-aqui
+
+## 3. Execute o agente
+
+python main.py
+
+## 4. Rode os testes gerados
+
+pytest test_soma.py
+
+# Testes gerados
+
+import pytest
+
+def test_soma_sucesso():
+    assert soma(2, 3) == 5
+
+def test_soma_falha():
+    with pytest.raises(TypeError):
+        soma(2, "a")
